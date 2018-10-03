@@ -24,6 +24,12 @@ def psi_catnew(u):
                     (np.sign(u)*2*math.sqrt(2)/3),
                     (u-u**3/6))
 
+def psi_catnew_deriv(u):
+    '''
+    Derivative of influence function of Catoni and Giulini (2017).
+    '''
+    return np.where((np.abs(u) >= math.sqrt(2)), 0., (1.-u**2/2.))
+
 CONST_catnew = math.sqrt(81/32)
 
 

@@ -179,8 +179,10 @@ def Hfn(eta, gam):
     return out
 
     
-def linkfn(theta, gam):
+def linkfn(theta, gam, s=1.0):
     '''
     Domain is theta in [-1,1].
     '''
-    return lossfn(u=0, gam=gam) - Hfn(eta=((1+theta)/2), gam=gam)
+    return s**2*(lossfn(u=0, gam=(gam/s))-Hfn(eta=((1+theta)/2), gam=(gam/s)))
+
+
